@@ -43,6 +43,8 @@ RUN pip3 install \
 # Copy the libary to the docker image
 COPY ./ depoco/
 
+RUN cd depoco/submodules && git clone https://github.com/ThibaultGROUEIX/ChamferDistancePytorch
+
 # Install depoco and 3rdparty dependencies
 RUN cd depoco/ && pip3 install -U -e .
 RUN cd depoco/submodules/octree_handler && pip3 install -U .
